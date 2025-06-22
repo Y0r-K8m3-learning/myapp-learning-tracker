@@ -6,16 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
     // ユーザー登録
     public function register(Request $request)
     {
+
         $request->validate([
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8',
+        ]);
+
+        Log::info('validate OK', [
+            'name'  => $request->name,
+            'email' => $request->email,
         ]);
 
         $user = User::create([
@@ -23,8 +30,6 @@ class AuthController extends Controller
             'email'    => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
-        Auth::login($user);
 
         return response()->json(['user' => $user]);
     }
