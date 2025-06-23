@@ -30,11 +30,11 @@ export default function Login({ onLogin }: LoginProps) {
 
   return (
     <form onSubmit={handleLogin}>
-      <h2>ログイン</h2>
+      <h2>ログイン１</h2>
       <input
         value={email}
         onChange={handleEmailChange}
-        placeholder="メール"
+        placeholder="メール１２"
         name="email"
         type="email"
         required
