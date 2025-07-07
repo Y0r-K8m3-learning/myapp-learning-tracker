@@ -15,11 +15,13 @@ interface FormState {
 }
 
 export default function Register({ onRegister }: RegisterFormProps) {
-  const [form, setForm] = useState<FormState>({
-    name: "123",
-    email: "test@ex.com",
-    password: "12345678",
+  const { data, setData, post, processing, errors, reset } = useForm({
+    name: "",
+    email: "",
+    password: "",
     password_confirmation: "",
+    zipcode: "",
+    address: "",
   });
   const [error, setError] = useState<string>("");
   const [result, setResult] = useState<string>("");

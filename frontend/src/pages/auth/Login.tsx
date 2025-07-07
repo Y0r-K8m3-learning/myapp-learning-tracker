@@ -34,7 +34,7 @@ export default function Login({ onLogin }: LoginProps) {
       <input
         value={email}
         onChange={handleEmailChange}
-        placeholder="メール１２"
+        placeholder="メール１２3"
         name="email"
         type="email"
         required

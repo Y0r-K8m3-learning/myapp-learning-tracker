@@ -78,8 +78,8 @@ services:
 
   python:
     build:
-      context: ./docker/python
-      dockerfile: Dockerfile
+      context: ./apis/python/app
+      dockerfile: ../../../docker/python/Dockerfile
     container_name: python
     working_dir: /app
     volumes:
